@@ -1,0 +1,740 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chocolate Collection | Choco Hub Royal Café</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --gold: #b78335;
+    --dark-gold: #805018;
+    --cream: #fff9ee;
+    --white: #fffefa;
+    --brown: #432716;
+    --light-gold: #e7d1a4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--brown);
+    font-family: 'Cormorant Garamond', serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.container {
+    width: min(1200px, 92%);
+    margin: auto;
+}
+
+.gold-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background: var(--gold);
+    color: white;
+    border: 1px solid var(--gold);
+    transition: .3s;
+}
+
+.gold-button:hover {
+    background: var(--dark-gold);
+}
+
+.outline-button {
+    display: inline-block;
+    padding: 11px 24px;
+    border: 1px solid var(--gold);
+    color: var(--dark-gold);
+    background: transparent;
+}
+
+.outline-button:hover {
+    background: var(--gold);
+    color: white;
+}
+
+/* TOP STRIP */
+
+.top-strip {
+    background: var(--brown);
+    color: #f5dca9;
+    text-align: center;
+    padding: 9px;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+/* HEADER */
+
+header {
+    background: var(--white);
+    border-bottom: 1px solid var(--light-gold);
+}
+
+.navbar {
+    min-height: 88px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    text-align: center;
+    min-width: 175px;
+}
+
+.crown {
+    color: var(--gold);
+    font-size: 27px;
+    display: block;
+}
+
+.logo h2 {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.logo small {
+    color: var(--dark-gold);
+    letter-spacing: 4px;
+    font-size: 10px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    font-size: 17px;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.cart-button {
+    background: transparent;
+    border: 1px solid var(--light-gold);
+    color: var(--brown);
+    padding: 11px 15px;
+}
+
+/* PAGE HERO */
+
+.page-hero {
+    min-height: 390px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    background:
+        linear-gradient(90deg, #fff8e9e8, #fff8e9a8),
+        url('https://images.unsplash.com/photo-1548907040-4d42a4f6c7f7?auto=format&fit=crop&w=1800&q=90')
+        center/cover no-repeat;
+    border-bottom: 2px solid var(--gold);
+}
+
+.hero-content {
+    max-width: 720px;
+}
+
+.eyebrow {
+    color: var(--dark-gold);
+    letter-spacing: 3px;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.page-hero h1 {
+    font-size: clamp(48px, 7vw, 78px);
+    font-weight: 500;
+    line-height: 1;
+    margin: 15px 0 5px;
+}
+
+.script {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(35px, 5vw, 50px);
+    color: var(--gold);
+    margin: 10px 0;
+}
+
+.page-hero p {
+    font-size: 19px;
+    line-height: 1.6;
+    margin: 15px auto 24px;
+    max-width: 590px;
+}
+
+/* CATEGORY NAVIGATION */
+
+.categories {
+    padding: 28px 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--light-gold);
+}
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.category-list a {
+    padding: 10px 22px;
+    border: 1px solid var(--light-gold);
+    background: var(--cream);
+    transition: .3s;
+}
+
+.category-list a:hover {
+    background: var(--gold);
+    color: white;
+    border-color: var(--gold);
+}
+
+/* COLLECTION */
+
+.collection {
+    padding: 65px 0 80px;
+    background: linear-gradient(180deg, #fffaf0, #fffdf7);
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-size: clamp(34px, 4vw, 48px);
+    font-weight: 500;
+    margin: 8px 0;
+}
+
+.section-heading p {
+    font-size: 18px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.product-card {
+    background: var(--white);
+    padding: 9px;
+    border: 1px solid var(--light-gold);
+    box-shadow: 0 4px 12px #6d46100d;
+    transition: .3s;
+    text-align: center;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px #6d46101a;
+    border-color: var(--gold);
+}
+
+.product-image {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    display: block;
+    background: #ead8b9;
+}
+
+.product-info {
+    padding: 14px 8px 10px;
+}
+
+.product-info h3 {
+    font-size: 23px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.product-info p {
+    font-size: 15px;
+    line-height: 1.45;
+    color: #765d48;
+    min-height: 42px;
+}
+
+.price {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    margin: 13px 0;
+}
+
+.add-button {
+    width: 100%;
+    background: var(--gold);
+    border: 1px solid var(--gold);
+    color: white;
+    padding: 11px 8px;
+    font-size: 15px;
+    transition: .3s;
+}
+
+.add-button:hover {
+    background: var(--brown);
+    border-color: var(--brown);
+}
+
+/* CHOCOLATE PROMOTION */
+
+.promo {
+    background: #f1e0bf;
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    padding: 55px 20px;
+    text-align: center;
+}
+
+.promo h2 {
+    font-size: clamp(32px, 4vw, 45px);
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+.promo p {
+    font-size: 18px;
+    margin-bottom: 22px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #392215;
+    color: #fff4de;
+    padding: 45px 0 18px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+    gap: 30px;
+    padding-bottom: 30px;
+}
+
+.footer-column h3 {
+    font-size: 21px;
+    font-weight: 500;
+    color: #e3c58d;
+    margin-bottom: 14px;
+}
+
+.footer-column a,
+.footer-column p {
+    display: block;
+    font-size: 15px;
+    margin: 9px 0;
+    color: #f8ead0;
+}
+
+.footer-column a:hover {
+    color: #e3c58d;
+}
+
+.footer-logo h2 {
+    font-size: 27px;
+}
+
+.footer-logo p {
+    color: #e3c58d;
+    letter-spacing: 3px;
+    font-size: 11px;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #765733;
+    padding-top: 18px;
+    color: #e3c58d;
+    font-size: 13px;
+}
+
+/* CART MESSAGE */
+
+.cart-message {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 15px 22px;
+    background: var(--brown);
+    color: white;
+    display: none;
+    z-index: 999;
+    box-shadow: 0 5px 20px #0002;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 620px) {
+    .navbar {
+        padding: 15px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo {
+        width: 100%;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        font-size: 15px;
+    }
+
+    .page-hero {
+        min-height: 350px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 260px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-strip">
+    ✦ DISCOVER THE ART OF FINE CHOCOLATE ✦
+</div>
+
+<header>
+    <div class="container navbar">
+
+        <a href="index.html" class="logo">
+            <span class="crown">♛</span>
+            <h2>CHOCO HUB</h2>
+            <small>ROYAL CAFÉ</small>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#collection">Chocolates</a>
+            <a href="#gifts">Gift Boxes</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="cart-button" onclick="showCart()">
+            ♡ Cart (<span id="cartCount">0</span>)
+        </button>
+
+    </div>
+</header>
+
+<section class="page-hero">
+    <div class="hero-content">
+
+        <div class="eyebrow">♛ The Royal Chocolate Collection ♛</div>
+
+        <h1>Chocolate Treasures</h1>
+
+        <div class="script">Crafted for Your Sweetest Moments</div>
+
+        <p>
+            Discover an exquisite world of silky truffles,
+            rich chocolate bars, delicate pralines and
+            luxurious chocolate gifts, created for true
+            chocolate lovers.
+        </p>
+
+        <a href="#collection" class="gold-button">
+            Explore the Collection →
+        </a>
+
+    </div>
+</section>
+
+<section class="categories">
+    <div class="container category-list">
+        <a href="#truffles">Truffles</a>
+        <a href="#bars">Chocolate Bars</a>
+        <a href="#pralines">Pralines</a>
+        <a href="#strawberries">Chocolate Strawberries</a>
+        <a href="#bonbons">Bonbons</a>
+        <a href="#gifts">Gift Boxes</a>
+    </div>
+</section>
+
+<section class="collection" id="collection">
+    <div class="container">
+
+        <div class="section-heading">
+            <div class="eyebrow">A Selection of Sweet Perfection</div>
+            <h2>Our Chocolate Boutique</h2>
+            <p>Every piece is a little moment of luxury.</p>
+        </div>
+
+        <div class="product-grid">
+
+            <article class="product-card" id="truffles">
+                <img class="product-image"
+                src="https://images.unsplash.com/photo-1548907040-4d42a4f6c7f7?auto=format&fit=crop&w=700&q=85"
+                alt="Assorted chocolate truffles">
+
+                <div class="product-info">
+                    <h3>Velvet Truffles</h3>
+                    <p>Silky centres wrapped in rich chocolate shells.</p>
+                    <span class="price">₹320</span>
+                    <button class="add-button" onclick="addToCart('Velvet Truffles',320)">Add to Cart</button>
+                </div>
+            </article>
+
+            <article class="product-card" id="bars">
+                <img class="product-image"
+                src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=700&q=85"
+                alt="Rich chocolate bars">
+
+                <div class="product-info">
+                    <h3>Dark Chocolate Bars</h3>
+                    <p>Deep cocoa flavour with a satisfying snap.</p>
+                    <span class="price">₹180</span>
+                    <button class="add-button" onclick="addToCart('Dark Chocolate Bars',180)">Add to Cart</button>
+                </div>
+            </article>
+
+            <article class="product-card" id="pralines">
+                <img class="product-image"
+                src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=700&q=85"
+                alt="Handcrafted chocolate pralines">
+
+                <div class="product-info">
+                    <h3>Golden Pralines</h3>
+                    <p>Delicate chocolate shells with luscious fillings.</p>
+                    <span class="price">₹250</span>
+                    <button class="add-button" onclick="addToCart('Golden Pralines',250)">Add to Cart</button>
+                </div>
+            </article>
+
+            <article class="product-card" id="strawberries">
+                <img class="product-image"
+                src="https://images.unsplash.com/photo-1528823872057-9c018a7f7553?auto=format&fit=crop&w=700&q=85"
+                alt="Fresh strawberries">
+
+                <div class="product-info">
+                    <h3>Chocolate Strawberries</h3>
+                    <p>Fresh, juicy strawberries with chocolate coating.</p>
+                    <span class="price">₹200</span>
+                    <button class="add-button" onclick="addToCart('Chocolate Strawberries',200)">Add to Cart</button>
+                </div>
+            </article>
+
+            <article class="product-card" id="bonbons">
+                <img class="product-image"
+                src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=85"
+                alt="Handcrafted chocolate bonbons">
+
+                <div class="product-info">
+                    <h3>Royal Bonbons</h3>
+                    <p>Little works of art with a melt-in-your-mouth centre.</p>
+                    <span class="price">₹280</span>
+                    <button class="add-button" onclick="addToCart('Royal Bonbons',280)">Add to Cart</button>
+                </div>
+            </article>
+
+            <article class="product-card" id="gifts">
+                <img class="product-image"
+                src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=700&q=85"
+                alt="Elegant chocolate gift box">
+
+                <div class="product-info">
+                    <h3>Royal Gift Box</h3>
+                    <p>An elegant assortment for unforgettable occasions.</p>
+                    <span class="price">₹450</span>
+                    <button class="add-button" onclick="addToCart('Royal Gift Box',450)">Add to Cart</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img class="product-image"
+                src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?auto=format&fit=crop&w=700&q=85"
+                alt="Chocolate treats">
+
+                <div class="product-info">
+                    <h3>Hazelnut Chocolates</h3>
+                    <p>Roasted hazelnuts covered in smooth chocolate.</p>
+                    <span class="price">₹290</span>
+                    <button class="add-button" onclick="addToCart('Hazelnut Chocolates',290)">Add to Cart</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img class="product-image"
+                src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=700&q=85"
+                alt="Premium assorted chocolates">
+
+                <div class="product-info">
+                    <h3>Grand Chocolate Selection</h3>
+                    <p>A delightful collection for the finest chocolate lovers.</p>
+                    <span class="price">₹520</span>
+                    <button class="add-button" onclick="addToCart('Grand Chocolate Selection',520)">Add to Cart</button>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="promo">
+    <div class="eyebrow">A Gift from the Heart</div>
+    <h2>Make Every Moment a Little Sweeter</h2>
+    <p>Celebrate birthdays, anniversaries and special occasions with chocolate.</p>
+    <a href="#gifts" class="gold-button">Explore Royal Gifts →</a>
+</section>
+
+<footer id="contact">
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-logo">
+                <span class="crown">♛</span>
+                <h2>CHOCO HUB</h2>
+                <p>ROYAL CAFÉ</p>
+                <br>
+                <p style="letter-spacing:normal;line-height:1.7">
+                    A little luxury in every bite.
+                    Discover your favourite chocolate with us.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="#collection">Chocolates</a>
+                <a href="#gifts">Gift Boxes</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Our Chocolates</h3>
+                <a href="#truffles">Truffles</a>
+                <a href="#bars">Chocolate Bars</a>
+                <a href="#pralines">Pralines</a>
+                <a href="#strawberries">Chocolate Strawberries</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Visit Choco Hub</h3>
+                <p>📍 Your Café Address</p>
+                <p>✉ hello@chocohub.com</p>
+                <p>🕒 Add Your Opening Hours</p>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Choco Hub Royal Café. All Rights Reserved.
+        </div>
+
+    </div>
+</footer>
+
+<div class="cart-message" id="cartMessage"></div>
+
+<script>
+let cart = [];
+
+function addToCart(name, price) {
+    cart.push({ name: name, price: price });
+
+    document.getElementById("cartCount").textContent = cart.length;
+
+    const message = document.getElementById("cartMessage");
+    message.textContent = name + " added to your cart!";
+    message.style.display = "block";
+
+    clearTimeout(window.cartTimer);
+
+    window.cartTimer = setTimeout(function() {
+        message.style.display = "none";
+    }, 2500);
+}
+
+function showCart() {
+    if (cart.length === 0) {
+        alert("Your cart is empty! Choose your favourite chocolates.");
+        return;
+    }
+
+    let total = 0;
+    let message = "YOUR CHOCO HUB CART\n\n";
+
+    cart.forEach(function(item, index) {
+        message += (index + 1) + ". " + item.name + " - ₹" + item.price + "\n";
+        total += item.price;
+    });
+
+    message += "\nTotal: ₹" + total;
+    message += "\n\nDemo cart only — online checkout is not connected.";
+
+    alert(message);
+}
+</script>
+
+</body>
+</html>
